@@ -7,7 +7,7 @@ import zipfile
 from glob import glob
 import soundfile as sf
 import numpy as np
-
+import ttsfrd
 
 ROOT_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # NOQA: E402
 sys.path.insert(0, os.path.dirname(ROOT_PATH))  # NOQA: E402
@@ -100,7 +100,14 @@ def text_to_wav(
         config = yaml.load(f, Loader=yaml.Loader)
     if speaker is None:
         speaker = config["linguistic_unit"]["speaker_list"].split(",")[3]
-    symbols_lst = text_to_symbols(texts, resource_dir, speaker, lang)
+
+    speaker = 'F7'
+    lang = 'Korean'
+    resource_dir = 'speech_sambert-hifigan_tts_kyong_Korean_16k/resource'
+    fe = ttsfrd.TtsFrontendEngine()
+    fe.initialize(resource_dir)
+    fe.set_lang_type('korean')
+    symbols_lst = text_to_symbols(fe, texts, resource_dir, speaker, lang)
     symbols_file = os.path.join(output_dir, "symbols.lst")
     with open(symbols_file, "w") as symbol_data:
         for symbol in symbols_lst:
