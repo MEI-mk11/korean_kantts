@@ -2,9 +2,16 @@
 
 This is a model built based on modelscope kantts/a finetune version of korean tts
 
-# Training Process
+# Training Process For Sambert
 
 To be released
+
+# Training Process For Hifigan
+
+Preprocess korean dataset as shown in training process for sambert, run the following command to train hifigan for your own voice
+
+CUDA_VISIBLE_DEVICES=2 python kantts/bin/train_hifigan.py --model_config speech_sambert-hifigan_tts_kyong_Korean_16k/basemodel_16k/hifigan/config.yaml --root_dir data/korean_labeled --stage_dir training_stage_hifigan --resume_path speech_sambert-hifigan_tts_kyong_Korean_16k/basemodel_16k/hifigan/ckpt/checkpoint_160000.pth
+
 
 # Inference Process
 
