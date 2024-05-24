@@ -4,7 +4,9 @@ This is a model built based on modelscope kantts/a finetune version of korean tt
 
 # Training Process For Sambert
 
-To be released
+Use modify_sr to change the sampling rate to 16000hz
+Use korean_recognition to auto recognize korean
+Use text2phone to change text to required form
 
 # Training Process For Hifigan
 
