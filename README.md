@@ -5,8 +5,18 @@ This is a model built based on modelscope kantts/a finetune version of korean tt
 # Training Process For Sambert
 
 Use modify_sr to change the sampling rate to 16000hz
+
 Use korean_recognition to auto recognize korean
+
 Use text2phone to change text to required form
+
+python kantts/preprocess/data_process_korean.py --voice_input_dir data/hanyu2h_label --voice_output_dir data/hanyu2h_labeled --audio_config kantts/configs/audio_config_se_16k.yaml --speaker F7 --se_model speech_personal_sambert-hifigan_nsf_tts_zh-cn_pretrain_16k/basemodel_16k/speaker_embedding/se.model    to extract the relevant features
+
+cp the raw_metafile into the labeled file
+
+
+
+
 
 # Training Process For Hifigan
 
