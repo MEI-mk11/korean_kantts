@@ -16,6 +16,8 @@ python kantts/preprocess/data_process_korean.py --voice_input_dir data/hanyu2h_l
 
 edit the am_train file using raw_metafile
 
+CUDA_VISIBLE_DEVICES=1,2 python kantts/bin/train_sambert.py --model_config speech_sambert-hifigan_tts_kyong_Korean_16k/basemodel_16k/sambert/config.yaml --root_dir data/hanyu_label data/tts1_label data/kss_label --stage_dir training_stage/test_male_ptts_sambert_ckpt --resume_path speech_sambert-hifigan_tts_kyong_Korean_16k/basemodel_16k/sambert/ckpt/checkpoint_630000.pth
+
 
 
 
